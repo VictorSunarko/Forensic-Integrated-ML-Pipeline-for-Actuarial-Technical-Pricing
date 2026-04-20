@@ -27,7 +27,6 @@ This project was built by Victor Sunarko with (partial) assistance from Claude (
 - [Pipeline Walkthrough](#pipeline-walkthrough)
 - [Key Results and Performance](#key-results-and-performance)
 - [Conclusions and Suggestions](#conclusions-and-suggestions)
-- [Repository Structure](#repository-structure)
 - [How to Run](#how-to-run)
 - [Dependencies](#dependencies)
 
@@ -563,58 +562,6 @@ The Forensic-First approach adds genuine value, confirmed by three independent l
 **Extend to multi-year data:** Adding two additional observation years would nearly triple the severity training set from 24,943 to approximately 75,000 claimant observations, which would substantially improve both Gamma GLM and gradient boosting severity model stability. The low D-Squared scores in severity (XGBoost: -0.075) reflect the inherent difficulty of predicting severity from single-year data rather than a model design flaw.
 
 **Productionize the inference function:** The `predict_technical_premium()` function is a working prototype. Wrapping it in a FastAPI endpoint with input validation, response caching, and a Redis-backed rate limiting layer would produce a production-ready quoting API. The 15µs per-record latency leaves more than 49ms of headroom within the 50ms SLA for all overhead, including network round trips, database lookups, and logging.
-
----
-
-## Repository Structure
-
-```
-veritas-risk/
-│
-├── Victor_Sunarko_Projects_Forensic-Integrated_ML_Pipeline_for_Actuarial_Technical_Pricing.ipynb
-│
-├── veritas_plots/                                Generated visualizations (22 files)
-│   ├── forensic_benford.png
-│   ├── forensic_dashboard.png
-│   ├── feda_univariate.png
-│   ├── feda_categorical.png
-│   ├── feda_correlation.png
-│   ├── feda_exposure_density.png
-│   ├── feda_severity_deepdive.png
-│   ├── feda_bonusmalus.png
-│   ├── feda_age_profiles.png
-│   ├── overfit_analysis.png
-│   ├── lorenz_curves.png
-│   ├── feature_sensitivity.png
-│   ├── fairness_analysis.png
-│   ├── monotonic_validation.png
-│   ├── optuna_convergence.png
-│   ├── profitability_analysis.png
-│   ├── loss_ratio_projection.png
-│   ├── bootstrap_stability.png
-│   ├── premium_trimming.png
-│   ├── ae_calibration.png
-│   ├── latency_benchmark.png
-│   └── final_kpi_dashboard.png
-│
-├── veritas_models/                               Serialized model artifacts (14 files)
-│   ├── catboost_freq.cbm          (2,372 KB)
-│   ├── catboost_sev.cbm             (534 KB)
-│   ├── xgb_freq.ubj               (6,373 KB)
-│   ├── xgb_sev.ubj                (1,024 KB)
-│   ├── xgb_tweedie.ubj              (864 KB)
-│   ├── lgb_freq.txt               (6,465 KB)
-│   ├── lgb_sev.txt                  (178 KB)
-│   ├── poisson_glm.pkl          (237,313 KB)
-│   ├── nb_glm.pkl               (237,313 KB)
-│   ├── gamma_glm.pkl              (8,585 KB)
-│   ├── isolation_forest.pkl       (4,498 KB)
-│   ├── lof.pkl                   (26,330 KB)
-│   ├── forensic_scaler.pkl            (1 KB)
-│   └── inference_bundle.pkl           (1 KB)
-│
-└── README.md
-```
 
 ---
 
