@@ -571,7 +571,7 @@ The Forensic-First approach adds genuine value, confirmed by three independent l
 ```
 veritas-risk/
 │
-├── Victor_Sunarko_VERITAS_RISK_v3_Final.ipynb    Main notebook (63 cells, 8 parts)
+├── Victor_Sunarko_Projects_Forensic-Integrated_ML_Pipeline_for_Actuarial_Technical_Pricing.ipynb    Main notebook (63 cells, 8 parts)
 │
 ├── veritas_plots/                                Generated visualizations (22 files)
 │   ├── forensic_benford.png
